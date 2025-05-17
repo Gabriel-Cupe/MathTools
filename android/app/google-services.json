@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "315973252554",
+    "project_id": "mathtools-3f671",
+    "storage_bucket": "mathtools-3f671.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315973252554:android:6d3a1c769d6329591acb33",
+        "android_client_info": {
+          "package_name": "me.nazajf.mathtools"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV34tIBGfAVmyz3JvzCB6O-EYvFQhCo-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

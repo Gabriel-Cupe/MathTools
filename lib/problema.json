@@ -1,0 +1,712 @@
+{
+  "user_counter": 1,
+  "users": {
+    "000001T": {
+      "avatar": "https://i.ibb.co/HL1xkdFM/Chat-GPT-Image-16-may-2025-06-21-25-p-m-modified.png",
+      "banned": false,
+      "description": "Hola buenas",
+      "diario_completo": false,
+      "global_rank": 1,
+      "id": "000001T",
+      "is_admin": true,
+      "is_online": true,
+      "password": "123456",
+      "points": 0,
+      "se_unio": 2025,
+      "updated_at": 1747445284468,
+      "username": "Gabriel Cupe"
+    }
+
+ 
+ },
+  "ejercicios": {
+ "temas": [
+    "Cálculo Integral",
+    "Álgebra",
+    "Geometría"
+  ],
+  "subtemas": {
+    "Cálculo Integral": [
+      "Integrales definidas",
+      "Integrales impropias",
+      "Métodos de integración"
+    ],
+    "Álgebra": [
+      "Ecuaciones lineales",
+      "Matrices",
+      "Vectores"
+    ],
+    "Geometría": [
+      "Triángulos",
+      "Círculos",
+      "Polígonos"
+    ]
+  },
+  "ejercicios": {
+    "Geometría": {
+      "Círculos": {
+        "ej1": {
+          "id": "ej1",
+          "tema": "Geometría",
+          "subtema": "Círculos",
+          "dificultad": "facil",
+          "premisa": "Encuentra el valor de #ej1",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej1",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej2": {
+          "id": "ej2",
+          "tema": "Geometría",
+          "subtema": "Círculos",
+          "dificultad": "facil",
+          "premisa": "Encuentra el valor de #ej2",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej2",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej20": {
+          "id": "ej20",
+          "tema": "Geometría",
+          "subtema": "Círculos",
+          "dificultad": "dificil",
+          "premisa": "Encuentra el valor de #ej20",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej20",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej28": {
+          "id": "ej28",
+          "tema": "Geometría",
+          "subtema": "Círculos",
+          "dificultad": "dificil",
+          "premisa": "Encuentra el valor de #ej28",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej28",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej29": {
+          "id": "ej29",
+          "tema": "Geometría",
+          "subtema": "Círculos",
+          "dificultad": "facil",
+          "premisa": "Encuentra el valor de #ej29",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej29",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej30": {
+          "id": "ej30",
+          "tema": "Geometría",
+          "subtema": "Círculos",
+          "dificultad": "dificil",
+          "premisa": "Encuentra el valor de #ej30",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej30",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej31": {
+          "id": "ej31",
+          "tema": "Geometría",
+          "subtema": "Círculos",
+          "dificultad": "dificil",
+          "premisa": "Encuentra el valor de #ej31",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej31",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      },
+      "Triángulos": {
+        "ej4": {
+          "id": "ej4",
+          "tema": "Geometría",
+          "subtema": "Triángulos",
+          "dificultad": "medio",
+          "premisa": "Encuentra el valor de #ej4",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej4",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej7": {
+          "id": "ej7",
+          "tema": "Geometría",
+          "subtema": "Triángulos",
+          "dificultad": "experto",
+          "premisa": "Encuentra el valor de #ej7",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej7",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej14": {
+          "id": "ej14",
+          "tema": "Geometría",
+          "subtema": "Triángulos",
+          "dificultad": "medio",
+          "premisa": "Encuentra el valor de #ej14",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej14",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej19": {
+          "id": "ej19",
+          "tema": "Geometría",
+          "subtema": "Triángulos",
+          "dificultad": "experto",
+          "premisa": "Encuentra el valor de #ej19",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej19",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej25": {
+          "id": "ej25",
+          "tema": "Geometría",
+          "subtema": "Triángulos",
+          "dificultad": "dificil",
+          "premisa": "Encuentra el valor de #ej25",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej25",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej35": {
+          "id": "ej35",
+          "tema": "Geometría",
+          "subtema": "Triángulos",
+          "dificultad": "facil",
+          "premisa": "Encuentra el valor de #ej35",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej35",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej37": {
+          "id": "ej37",
+          "tema": "Geometría",
+          "subtema": "Triángulos",
+          "dificultad": "experto",
+          "premisa": "Encuentra el valor de #ej37",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej37",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      },
+      "Polígonos": {
+        "ej8": {
+          "id": "ej8",
+          "tema": "Geometría",
+          "subtema": "Polígonos",
+          "dificultad": "experto",
+          "premisa": "Encuentra el valor de #ej8",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej8",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej9": {
+          "id": "ej9",
+          "tema": "Geometría",
+          "subtema": "Polígonos",
+          "dificultad": "medio",
+          "premisa": "Encuentra el valor de #ej9",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej9",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej13": {
+          "id": "ej13",
+          "tema": "Geometría",
+          "subtema": "Polígonos",
+          "dificultad": "facil",
+          "premisa": "Encuentra el valor de #ej13",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej13",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej22": {
+          "id": "ej22",
+          "tema": "Geometría",
+          "subtema": "Polígonos",
+          "dificultad": "dificil",
+          "premisa": "Encuentra el valor de #ej22",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej22",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej26": {
+          "id": "ej26",
+          "tema": "Geometría",
+          "subtema": "Polígonos",
+          "dificultad": "dificil",
+          "premisa": "Encuentra el valor de #ej26",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej26",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej33": {
+          "id": "ej33",
+          "tema": "Geometría",
+          "subtema": "Polígonos",
+          "dificultad": "facil",
+          "premisa": "Encuentra el valor de #ej33",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej33",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej34": {
+          "id": "ej34",
+          "tema": "Geometría",
+          "subtema": "Polígonos",
+          "dificultad": "dificil",
+          "premisa": "Encuentra el valor de #ej34",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej34",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej38": {
+          "id": "ej38",
+          "tema": "Geometría",
+          "subtema": "Polígonos",
+          "dificultad": "medio",
+          "premisa": "Encuentra el valor de #ej38",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej38",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      }
+    },
+    "Álgebra": {
+      "Vectores": {
+        "ej3": {
+          "id": "ej3",
+          "tema": "Álgebra",
+          "subtema": "Vectores",
+          "dificultad": "facil",
+          "premisa": "Resuelve la ecuación #ej3",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej3",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej10": {
+          "id": "ej10",
+          "tema": "Álgebra",
+          "subtema": "Vectores",
+          "dificultad": "facil",
+          "premisa": "Resuelve la ecuación #ej10",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej10",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej15": {
+          "id": "ej15",
+          "tema": "Álgebra",
+          "subtema": "Vectores",
+          "dificultad": "dificil",
+          "premisa": "Resuelve la ecuación #ej15",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej15",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej18": {
+          "id": "ej18",
+          "tema": "Álgebra",
+          "subtema": "Vectores",
+          "dificultad": "dificil",
+          "premisa": "Resuelve la ecuación #ej18",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej18",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej21": {
+          "id": "ej21",
+          "tema": "Álgebra",
+          "subtema": "Vectores",
+          "dificultad": "facil",
+          "premisa": "Resuelve la ecuación #ej21",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej21",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej36": {
+          "id": "ej36",
+          "tema": "Álgebra",
+          "subtema": "Vectores",
+          "dificultad": "experto",
+          "premisa": "Resuelve la ecuación #ej36",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej36",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej40": {
+          "id": "ej40",
+          "tema": "Álgebra",
+          "subtema": "Vectores",
+          "dificultad": "experto",
+          "premisa": "Resuelve la ecuación #ej40",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej40",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      },
+      "Ecuaciones lineales": {
+        "ej16": {
+          "id": "ej16",
+          "tema": "Álgebra",
+          "subtema": "Ecuaciones lineales",
+          "dificultad": "experto",
+          "premisa": "Resuelve la ecuación #ej16",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej16",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      },
+      "Matrices": {
+        "ej17": {
+          "id": "ej17",
+          "tema": "Álgebra",
+          "subtema": "Matrices",
+          "dificultad": "facil",
+          "premisa": "Resuelve la ecuación #ej17",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej17",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej32": {
+          "id": "ej32",
+          "tema": "Álgebra",
+          "subtema": "Matrices",
+          "dificultad": "medio",
+          "premisa": "Resuelve la ecuación #ej32",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej32",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej39": {
+          "id": "ej39",
+          "tema": "Álgebra",
+          "subtema": "Matrices",
+          "dificultad": "dificil",
+          "premisa": "Resuelve la ecuación #ej39",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej39",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      }
+    },
+    "Cálculo Integral": {
+      "Integrales impropias": {
+        "ej5": {
+          "id": "ej5",
+          "tema": "Cálculo Integral",
+          "subtema": "Integrales impropias",
+          "dificultad": "medio",
+          "premisa": "Calcula la integral #ej5",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej5",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      },
+      "Métodos de integración": {
+        "ej6": {
+          "id": "ej6",
+          "tema": "Cálculo Integral",
+          "subtema": "Métodos de integración",
+          "dificultad": "medio",
+          "premisa": "Calcula la integral #ej6",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "a",
+          "solucion": "Explicación de la solución del ejercicio ej6",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej11": {
+          "id": "ej11",
+          "tema": "Cálculo Integral",
+          "subtema": "Métodos de integración",
+          "dificultad": "facil",
+          "premisa": "Calcula la integral #ej11",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej11",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej24": {
+          "id": "ej24",
+          "tema": "Cálculo Integral",
+          "subtema": "Métodos de integración",
+          "dificultad": "experto",
+          "premisa": "Calcula la integral #ej24",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "b",
+          "solucion": "Explicación de la solución del ejercicio ej24",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      },
+      "Integrales definidas": {
+        "ej12": {
+          "id": "ej12",
+          "tema": "Cálculo Integral",
+          "subtema": "Integrales definidas",
+          "dificultad": "medio",
+          "premisa": "Calcula la integral #ej12",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "d",
+          "solucion": "Explicación de la solución del ejercicio ej12",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej23": {
+          "id": "ej23",
+          "tema": "Cálculo Integral",
+          "subtema": "Integrales definidas",
+          "dificultad": "dificil",
+          "premisa": "Calcula la integral #ej23",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej23",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        },
+        "ej27": {
+          "id": "ej27",
+          "tema": "Cálculo Integral",
+          "subtema": "Integrales definidas",
+          "dificultad": "medio",
+          "premisa": "Calcula la integral #ej27",
+          "opciones": {
+            "a": "Opción A",
+            "b": "Opción B",
+            "c": "Opción C",
+            "d": "Opción D"
+          },
+          "opcionCorrecta": "c",
+          "solucion": "Explicación de la solución del ejercicio ej27",
+          "imagenUrl": "https://i.ibb.co/R4yMhGNS/Whats-App-Image-2025-05-16-at-9-16-15-PM.jpg"
+        }
+      }
+    }
+  }
+}
+}
