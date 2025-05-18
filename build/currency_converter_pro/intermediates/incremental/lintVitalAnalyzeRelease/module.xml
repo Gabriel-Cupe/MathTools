@@ -1,0 +1,19 @@
+<lint-module
+    format="1"
+    dir="/home/gabriel/.pub-cache/hosted/pub.dev/currency_converter_pro-0.0.7/android"
+    name=":currency_converter_pro"
+    type="LIBRARY"
+    maven="com.example.currency_converter_pro:currency_converter_pro:1.0-SNAPSHOT"
+    agpVersion="8.7.0"
+    buildFolder="/home/gabriel/Documentos/MathTools/MathTools/build/currency_converter_pro"
+    bootClassPath="/home/gabriel/Android/Sdk/platforms/android-34/android.jar:/home/gabriel/Android/Sdk/build-tools/34.0.0/core-lambda-stubs.jar"
+    javaSourceLevel="1.8"
+    compileTarget="android-34"
+    neverShrinking="true">
+  <lintOptions
+      abortOnError="true"
+      absolutePaths="true"
+      checkReleaseBuilds="true"
+      explainIssues="true"/>
+  <variant name="release"/>
+</lint-module>

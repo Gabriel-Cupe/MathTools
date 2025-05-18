@@ -1,0 +1,6 @@
+[
+    {
+        "merged": "com.example.currency_converter_pro-release-25:/drawable-v21/notification_action_background.xml",
+        "source": "com.example.currency_converter_pro-core-1.13.1-14:/drawable-v21/notification_action_background.xml"
+    }
+]

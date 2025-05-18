@@ -1,0 +1,312 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="me.nazajf.mathtools"
+4    android:versionCode="1"
+5    android:versionName="0.1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="35" />
+10    <!--
+11         Required to query activities that can process text, see:
+12         https://developer.android.com/training/package-visibility and
+13         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+14
+15         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin.
+16    -->
+17    <queries>
+17-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:39:5-44:15
+18        <intent>
+18-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:40:9-43:18
+19            <action android:name="android.intent.action.PROCESS_TEXT" />
+19-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:41:13-72
+19-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:41:21-70
+20
+21            <data android:mimeType="text/plain" />
+21-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:42:13-50
+21-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:42:19-48
+22        </intent>
+23        <intent>
+23-->[:file_picker] /home/gabriel/Documentos/MathTools/MathTools/build/file_picker/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:18
+24            <action android:name="android.intent.action.GET_CONTENT" />
+24-->[:file_picker] /home/gabriel/Documentos/MathTools/MathTools/build/file_picker/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-72
+24-->[:file_picker] /home/gabriel/Documentos/MathTools/MathTools/build/file_picker/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:21-69
+25
+26            <data android:mimeType="*/*" />
+26-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:42:13-50
+26-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:42:19-48
+27        </intent>
+28    </queries>
+29    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+30    <!-- <uses-sdk android:minSdkVersion="21"/> -->
+31    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+31-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:22:5-79
+31-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:22:22-76
+32    <uses-permission android:name="android.permission.INTERNET" />
+32-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:23:5-67
+32-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:23:22-64
+33
+34    <permission
+34-->[androidx.core:core:1.15.0] /home/gabriel/.gradle/caches/8.10.2/transforms/3db6d67d3957ef3306fe5dc8dc50642f/transformed/core-1.15.0/AndroidManifest.xml:22:5-24:47
+35        android:name="me.nazajf.mathtools.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+35-->[androidx.core:core:1.15.0] /home/gabriel/.gradle/caches/8.10.2/transforms/3db6d67d3957ef3306fe5dc8dc50642f/transformed/core-1.15.0/AndroidManifest.xml:23:9-81
+36        android:protectionLevel="signature" />
+36-->[androidx.core:core:1.15.0] /home/gabriel/.gradle/caches/8.10.2/transforms/3db6d67d3957ef3306fe5dc8dc50642f/transformed/core-1.15.0/AndroidManifest.xml:24:9-44
+37
+38    <uses-permission android:name="me.nazajf.mathtools.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+38-->[androidx.core:core:1.15.0] /home/gabriel/.gradle/caches/8.10.2/transforms/3db6d67d3957ef3306fe5dc8dc50642f/transformed/core-1.15.0/AndroidManifest.xml:26:5-97
+38-->[androidx.core:core:1.15.0] /home/gabriel/.gradle/caches/8.10.2/transforms/3db6d67d3957ef3306fe5dc8dc50642f/transformed/core-1.15.0/AndroidManifest.xml:26:22-94
+39
+40    <application
+41        android:name="android.app.Application"
+41-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:4:9-42
+42        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+42-->[androidx.core:core:1.15.0] /home/gabriel/.gradle/caches/8.10.2/transforms/3db6d67d3957ef3306fe5dc8dc50642f/transformed/core-1.15.0/AndroidManifest.xml:28:18-86
+43        android:extractNativeLibs="true"
+44        android:icon="@mipmap/ic_launcher"
+44-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:5:9-43
+45        android:label="MathTools" >
+45-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:3:9-34
+46        <activity
+46-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:6:9-27:20
+47            android:name="me.nazajf.mathtools.MainActivity"
+47-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:7:13-41
+48            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+48-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:12:13-163
+49            android:exported="true"
+49-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:8:13-36
+50            android:hardwareAccelerated="true"
+50-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:13:13-47
+51            android:launchMode="singleTop"
+51-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:9:13-43
+52            android:taskAffinity=""
+52-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:10:13-36
+53            android:theme="@style/LaunchTheme"
+53-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:11:13-47
+54            android:windowSoftInputMode="adjustResize" >
+54-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:14:13-55
+55
+56            <!--
+57                 Specifies an Android theme to apply to this Activity as soon as
+58                 the Android process has started. This theme is visible to the user
+59                 while the Flutter UI initializes. After that, this theme continues
+60                 to determine the Window background behind the Flutter UI.
+61            -->
+62            <meta-data
+62-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:19:13-22:17
+63                android:name="io.flutter.embedding.android.NormalTheme"
+63-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:20:15-70
+64                android:resource="@style/NormalTheme" />
+64-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:21:15-52
+65
+66            <intent-filter>
+66-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:23:13-26:29
+67                <action android:name="android.intent.action.MAIN" />
+67-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:24:17-68
+67-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:24:25-66
+68
+69                <category android:name="android.intent.category.LAUNCHER" />
+69-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:25:17-76
+69-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:25:27-74
+70            </intent-filter>
+71        </activity>
+72        <!--
+73             Don't delete the meta-data below.
+74             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+75        -->
+76        <meta-data
+76-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:30:9-32:33
+77            android:name="flutterEmbedding"
+77-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:31:13-44
+78            android:value="2" />
+78-->/home/gabriel/Documentos/MathTools/MathTools/android/app/src/main/AndroidManifest.xml:32:13-30
+79
+80        <provider
+80-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:9-17:20
+81            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+81-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:13-82
+82            android:authorities="me.nazajf.mathtools.flutter.image_provider"
+82-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:13-74
+83            android:exported="false"
+83-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:12:13-37
+84            android:grantUriPermissions="true" >
+84-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:13:13-47
+85            <meta-data
+85-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:14:13-16:75
+86                android:name="android.support.FILE_PROVIDER_PATHS"
+86-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:15:17-67
+87                android:resource="@xml/flutter_image_picker_file_paths" />
+87-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:16:17-72
+88        </provider> <!-- Trigger Google Play services to install the backported photo picker module. -->
+89        <service
+89-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:19:9-31:19
+90            android:name="com.google.android.gms.metadata.ModuleDependencies"
+90-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:20:13-78
+91            android:enabled="false"
+91-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:21:13-36
+92            android:exported="false" >
+92-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:22:13-37
+93            <intent-filter>
+93-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:24:13-26:29
+94                <action android:name="com.google.android.gms.metadata.MODULE_DEPENDENCIES" />
+94-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:25:17-94
+94-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:25:25-91
+95            </intent-filter>
+96
+97            <meta-data
+97-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:28:13-30:36
+98                android:name="photopicker_activity:0:required"
+98-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:29:17-63
+99                android:value="" />
+99-->[:image_picker_android] /home/gabriel/Documentos/MathTools/MathTools/build/image_picker_android/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:30:17-33
+100        </service>
+101        <service
+101-->[:firebase_database] /home/gabriel/Documentos/MathTools/MathTools/build/firebase_database/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:9-12:19
+102            android:name="com.google.firebase.components.ComponentDiscoveryService"
+102-->[:firebase_database] /home/gabriel/Documentos/MathTools/MathTools/build/firebase_database/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:8:18-89
+103            android:directBootAware="true"
+103-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+104            android:exported="false" >
+104-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:28:13-37
+105            <meta-data
+105-->[:firebase_database] /home/gabriel/Documentos/MathTools/MathTools/build/firebase_database/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-11:85
+106                android:name="com.google.firebase.components:io.flutter.plugins.firebase.database.FlutterFirebaseAppRegistrar"
+106-->[:firebase_database] /home/gabriel/Documentos/MathTools/MathTools/build/firebase_database/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:17-127
+107                android:value="com.google.firebase.components.ComponentRegistrar" />
+107-->[:firebase_database] /home/gabriel/Documentos/MathTools/MathTools/build/firebase_database/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:17-82
+108            <meta-data
+108-->[:firebase_core] /home/gabriel/Documentos/MathTools/MathTools/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:9:13-11:85
+109                android:name="com.google.firebase.components:io.flutter.plugins.firebase.core.FlutterFirebaseCoreRegistrar"
+109-->[:firebase_core] /home/gabriel/Documentos/MathTools/MathTools/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:10:17-124
+110                android:value="com.google.firebase.components.ComponentRegistrar" />
+110-->[:firebase_core] /home/gabriel/Documentos/MathTools/MathTools/build/firebase_core/intermediates/merged_manifest/release/processReleaseManifest/AndroidManifest.xml:11:17-82
+111            <meta-data
+111-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:29:13-31:85
+112                android:name="com.google.firebase.components:com.google.firebase.database.FirebaseDatabaseKtxRegistrar"
+112-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:30:17-120
+113                android:value="com.google.firebase.components.ComponentRegistrar" />
+113-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:31:17-82
+114            <meta-data
+114-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:32:13-34:85
+115                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+115-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:33:17-109
+116                android:value="com.google.firebase.components.ComponentRegistrar" />
+116-->[com.google.firebase:firebase-database:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/0617b6009ae4fedbfac8e84659b89b32/transformed/jetified-firebase-database-21.0.0/AndroidManifest.xml:34:17-82
+117            <meta-data
+117-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/bcc8d2985ec1ab09d1e21c43fe50ab02/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+118                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+118-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/bcc8d2985ec1ab09d1e21c43fe50ab02/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+119                android:value="com.google.firebase.components.ComponentRegistrar" />
+119-->[com.google.firebase:firebase-common-ktx:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/bcc8d2985ec1ab09d1e21c43fe50ab02/transformed/jetified-firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+120            <meta-data
+120-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+121                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+121-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+122                android:value="com.google.firebase.components.ComponentRegistrar" />
+122-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+123        </service>
+124
+125        <provider
+125-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+126            android:name="com.google.firebase.provider.FirebaseInitProvider"
+126-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+127            android:authorities="me.nazajf.mathtools.firebaseinitprovider"
+127-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+128            android:directBootAware="true"
+128-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+129            android:exported="false"
+129-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+130            android:initOrder="100" />
+130-->[com.google.firebase:firebase-common:21.0.0] /home/gabriel/.gradle/caches/8.10.2/transforms/ec4138de37aaf41c537b7e74e719439c/transformed/jetified-firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+131
+132        <activity
+132-->[com.google.android.gms:play-services-base:18.1.0] /home/gabriel/.gradle/caches/8.10.2/transforms/eb80b7c20f86db896fc82173afcd18d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+133            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+133-->[com.google.android.gms:play-services-base:18.1.0] /home/gabriel/.gradle/caches/8.10.2/transforms/eb80b7c20f86db896fc82173afcd18d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+134            android:exported="false"
+134-->[com.google.android.gms:play-services-base:18.1.0] /home/gabriel/.gradle/caches/8.10.2/transforms/eb80b7c20f86db896fc82173afcd18d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+135            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+135-->[com.google.android.gms:play-services-base:18.1.0] /home/gabriel/.gradle/caches/8.10.2/transforms/eb80b7c20f86db896fc82173afcd18d6/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+136
+137        <provider
+137-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/gabriel/.gradle/caches/8.10.2/transforms/7f01706e438658b6ef4ae1d2c2ecdd14/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:24:9-32:20
+138            android:name="androidx.startup.InitializationProvider"
+138-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/gabriel/.gradle/caches/8.10.2/transforms/7f01706e438658b6ef4ae1d2c2ecdd14/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:25:13-67
+139            android:authorities="me.nazajf.mathtools.androidx-startup"
+139-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/gabriel/.gradle/caches/8.10.2/transforms/7f01706e438658b6ef4ae1d2c2ecdd14/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:26:13-68
+140            android:exported="false" >
+140-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/gabriel/.gradle/caches/8.10.2/transforms/7f01706e438658b6ef4ae1d2c2ecdd14/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:27:13-37
+141            <meta-data
+141-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/gabriel/.gradle/caches/8.10.2/transforms/7f01706e438658b6ef4ae1d2c2ecdd14/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:29:13-31:52
+142                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+142-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/gabriel/.gradle/caches/8.10.2/transforms/7f01706e438658b6ef4ae1d2c2ecdd14/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:30:17-78
+143                android:value="androidx.startup" />
+143-->[androidx.lifecycle:lifecycle-process:2.8.7] /home/gabriel/.gradle/caches/8.10.2/transforms/7f01706e438658b6ef4ae1d2c2ecdd14/transformed/jetified-lifecycle-process-2.8.7/AndroidManifest.xml:31:17-49
+144            <meta-data
+144-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+145                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+145-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+146                android:value="androidx.startup" />
+146-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+147        </provider>
+148
+149        <uses-library
+149-->[androidx.window:window:1.2.0] /home/gabriel/.gradle/caches/8.10.2/transforms/73db24a2829d8fb9cf5663cfbb96cfeb/transformed/jetified-window-1.2.0/AndroidManifest.xml:23:9-25:40
+150            android:name="androidx.window.extensions"
+150-->[androidx.window:window:1.2.0] /home/gabriel/.gradle/caches/8.10.2/transforms/73db24a2829d8fb9cf5663cfbb96cfeb/transformed/jetified-window-1.2.0/AndroidManifest.xml:24:13-54
+151            android:required="false" />
+151-->[androidx.window:window:1.2.0] /home/gabriel/.gradle/caches/8.10.2/transforms/73db24a2829d8fb9cf5663cfbb96cfeb/transformed/jetified-window-1.2.0/AndroidManifest.xml:25:13-37
+152        <uses-library
+152-->[androidx.window:window:1.2.0] /home/gabriel/.gradle/caches/8.10.2/transforms/73db24a2829d8fb9cf5663cfbb96cfeb/transformed/jetified-window-1.2.0/AndroidManifest.xml:26:9-28:40
+153            android:name="androidx.window.sidecar"
+153-->[androidx.window:window:1.2.0] /home/gabriel/.gradle/caches/8.10.2/transforms/73db24a2829d8fb9cf5663cfbb96cfeb/transformed/jetified-window-1.2.0/AndroidManifest.xml:27:13-51
+154            android:required="false" />
+154-->[androidx.window:window:1.2.0] /home/gabriel/.gradle/caches/8.10.2/transforms/73db24a2829d8fb9cf5663cfbb96cfeb/transformed/jetified-window-1.2.0/AndroidManifest.xml:28:13-37
+155
+156        <meta-data
+156-->[com.google.android.gms:play-services-basement:18.3.0] /home/gabriel/.gradle/caches/8.10.2/transforms/d57a1f6c01347d085f9144e73c250e20/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+157            android:name="com.google.android.gms.version"
+157-->[com.google.android.gms:play-services-basement:18.3.0] /home/gabriel/.gradle/caches/8.10.2/transforms/d57a1f6c01347d085f9144e73c250e20/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+158            android:value="@integer/google_play_services_version" />
+158-->[com.google.android.gms:play-services-basement:18.3.0] /home/gabriel/.gradle/caches/8.10.2/transforms/d57a1f6c01347d085f9144e73c250e20/transformed/jetified-play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+159
+160        <receiver
+160-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+161            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+161-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+162            android:directBootAware="false"
+162-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+163            android:enabled="true"
+163-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+164            android:exported="true"
+164-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+165            android:permission="android.permission.DUMP" >
+165-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+166            <intent-filter>
+166-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+167                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+167-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+167-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+168            </intent-filter>
+169            <intent-filter>
+169-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+170                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+170-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+171            </intent-filter>
+172            <intent-filter>
+172-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+173                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+173-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+173-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+174            </intent-filter>
+175            <intent-filter>
+175-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+176                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+176-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+176-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/gabriel/.gradle/caches/8.10.2/transforms/71c2a5c462ada5f663b8ca591b1907a5/transformed/jetified-profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+177            </intent-filter>
+178        </receiver>
+179    </application>
+180
+181</manifest>

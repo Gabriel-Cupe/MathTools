@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:http/http.dart' as http;
 import 'package:iconsax/iconsax.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:mathtools/models/exercise_model.dart';
+import 'package:http/http.dart' as http;
 
 class ExerciseEditorScreen extends StatefulWidget {
   const ExerciseEditorScreen({super.key});
@@ -19,7 +19,7 @@ class ExerciseEditorScreen extends StatefulWidget {
 
 class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   final DatabaseReference _dbRef = FirebaseDatabase.instance.ref('ejercicios');
-  final _formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>(); // Ahora es mutable
   final _newTopicController = TextEditingController();
   final _newSubTopicController = TextEditingController();
 
@@ -30,6 +30,7 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   
   String? _selectedTema;
   String? _selectedSubtema;
+  String? _selectedEjercicioId;
   bool _isLoading = true;
   bool _isSaving = false;
   File? _imageFile;
@@ -42,6 +43,13 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   void initState() {
     super.initState();
     _loadData();
+  }
+
+  @override
+  void dispose() {
+    _newTopicController.dispose();
+    _newSubTopicController.dispose();
+    super.dispose();
   }
 
   Future<void> _loadData() async {
@@ -86,10 +94,13 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   }
 
   Future<void> _loadEjercicios(String tema, String subtema) async {
-    setState(() {
-      _isLoading = true;
-      _ejercicios = [];
-    });
+  setState(() {
+    _isLoading = true;
+    _selectedEjercicioId = null;
+    _ejercicios = [];
+    _ejercicioData = {};
+    _formKey = GlobalKey<FormState>(); // Resetear el formulario
+  });
 
     try {
       final snapshot = await _dbRef.child('ejercicios/$tema/$subtema').get();
@@ -106,31 +117,45 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
       setState(() => _isLoading = false);
     }
   }
-
-  void _newExercise() {
-    setState(() {
-      _isNewExercise = true;
-      _ejercicioData = {
-        'id': '',
-        'tema': _selectedTema,
-        'subtema': _selectedSubtema,
-        'dificultad': 'facil',
-        'premisa': '',
-        'opciones': {'a': '', 'b': '', 'c': '', 'd': ''},
-        'opcionCorrecta': 'a',
-        'solucion': '',
-        'imagenUrl': '',
-      };
-    });
-  }
-
-  void _editExercise(ExerciseModel ejercicio) {
-    setState(() {
-      _isNewExercise = false;
-      _ejercicioData = ejercicio.toMap();
-    });
-  }
-
+void _newExercise() {
+  // Resetear el formulario
+  _formKey.currentState?.reset();
+  
+  setState(() {
+    _isNewExercise = true;
+    _ejercicioData = {
+      'id': 'ej${DateTime.now().millisecondsSinceEpoch}',
+      'tema': _selectedTema,
+      'subtema': _selectedSubtema,
+      'dificultad': 'facil',
+      'premisa': '',
+      'opciones': {'a': '', 'b': '', 'c': '', 'd': '', 'e': ''},
+      'opcionCorrecta': 'a',
+      'solucion': '',
+      'imagenUrl': '',
+    };
+    _selectedEjercicioId = null;
+    _imageFile = null;
+    // Nueva key para forzar reconstrucción
+    _formKey = GlobalKey<FormState>();
+  });
+}
+void _editExercise(ExerciseModel ejercicio) {
+  // Limpiar el estado previo
+  _formKey.currentState?.reset();
+  
+  // Crear copia profunda independiente
+  final ejercicioMap = json.decode(json.encode(ejercicio.toMap()));
+  
+  setState(() {
+    _isNewExercise = false;
+    _ejercicioData = ejercicioMap;
+    _selectedEjercicioId = ejercicio.id;
+    _imageFile = null;
+    // Forzar reconstrucción del formulario
+    _formKey = GlobalKey<FormState>();
+  });
+}
   Future<void> _pickAndUploadImage() async {
     final result = await FilePicker.platform.pickFiles(
       type: FileType.image,
@@ -208,53 +233,27 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
     return json['data']['url'] as String;
   }
 
-  Future<void> _saveExercise() async {
-    if (!_formKey.currentState!.validate()) return;
-    if (_selectedTema == null || _selectedSubtema == null) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Selecciona un tema y subtema'),
-          backgroundColor: Colors.red,
-        ),
-      );
-      return;
-    }
+Future<void> _saveExercise() async {
+  if (!_formKey.currentState!.validate()) return;
+  
+  setState(() => _isSaving = true);
+  try {
+    // Crear una copia final para guardar
+    final ejercicioToSave = Map<String, dynamic>.from(_ejercicioData);
+    
+    await _dbRef.child('ejercicios/${_selectedTema}/${_selectedSubtema}/${ejercicioToSave['id']}')
+      .update(ejercicioToSave);
 
-    setState(() => _isSaving = true);
-    try {
-      final tema = _selectedTema!;
-      final subtema = _selectedSubtema!;
-      
-      if (_isNewExercise) {
-        // Generar nuevo ID
-        final newId = 'ej${DateTime.now().millisecondsSinceEpoch}';
-        _ejercicioData['id'] = newId;
-      }
-
-      await _dbRef.child('ejercicios/$tema/$subtema/${_ejercicioData['id']}').update(_ejercicioData);
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Ejercicio guardado correctamente'),
-          backgroundColor: Colors.green,
-        ),
-      );
-
-      // Recargar los ejercicios
-      await _loadEjercicios(tema, subtema);
-      setState(() => _isNewExercise = false);
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Error al guardar: $e'),
-          backgroundColor: Colors.red,
-        ),
-      );
-    } finally {
-      setState(() => _isSaving = false);
-    }
+    // Recargar desde la base de datos para evitar inconsistencias
+    await _loadEjercicios(_selectedTema!, _selectedSubtema!);
+    
+    setState(() => _isNewExercise = false);
+  } catch (e) {
+    // Manejo de errores...
+  } finally {
+    setState(() => _isSaving = false);
   }
-
+}
   Future<void> _addNewTopic() async {
     if (_newTopicController.text.isEmpty) return;
 
@@ -289,6 +288,67 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
     }
   }
 
+  Future<void> _deleteTopic() async {
+    if (_selectedTema == null) return;
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Eliminar Tema'),
+        content: Text('¿Estás seguro de eliminar el tema "${_selectedTema}"? Se perderán todos sus subtemas y ejercicios.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancelar'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Eliminar', style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+
+    setState(() => _isSaving = true);
+    try {
+      // Eliminar el tema de la lista
+      final updatedTopics = _temas.where((t) => t != _selectedTema).toList();
+      await _dbRef.child('temas').set(updatedTopics);
+      
+      // Eliminar toda la estructura del tema
+      await _dbRef.child('subtemas/$_selectedTema').remove();
+      await _dbRef.child('ejercicios/$_selectedTema').remove();
+
+      setState(() {
+        _temas = updatedTopics;
+        _selectedTema = _temas.isNotEmpty ? _temas.first : null;
+        _showNewTopicField = false;
+        _newTopicController.clear();
+      });
+
+      if (_selectedTema != null) {
+        await _loadSubtemas(_selectedTema!);
+      } else {
+        setState(() {
+          _subtemas = [];
+          _ejercicios = [];
+          _ejercicioData = {};
+        });
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error al eliminar tema: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } finally {
+      setState(() => _isSaving = false);
+    }
+  }
+
   Future<void> _addNewSubTopic() async {
     if (_newSubTopicController.text.isEmpty || _selectedTema == null) return;
 
@@ -314,6 +374,65 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error al agregar subtema: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
+    } finally {
+      setState(() => _isSaving = false);
+    }
+  }
+
+  Future<void> _deleteSubTopic() async {
+    if (_selectedTema == null || _selectedSubtema == null) return;
+
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('Eliminar Subtema'),
+        content: Text('¿Estás seguro de eliminar el subtema "${_selectedSubtema}"? Se perderán todos sus ejercicios.'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('Cancelar'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, true),
+            child: const Text('Eliminar', style: TextStyle(color: Colors.red)),
+          ),
+        ],
+      ),
+    );
+
+    if (confirmed != true) return;
+
+    setState(() => _isSaving = true);
+    try {
+      // Eliminar el subtema de la lista
+      final updatedSubTopics = _subtemas.where((s) => s != _selectedSubtema).toList();
+      await _dbRef.child('subtemas/$_selectedTema').set(updatedSubTopics);
+      
+      // Eliminar toda la estructura del subtema
+      await _dbRef.child('ejercicios/$_selectedTema/$_selectedSubtema').remove();
+
+      setState(() {
+        _subtemas = updatedSubTopics;
+        _selectedSubtema = _subtemas.isNotEmpty ? _subtemas.first : null;
+        _showNewSubTopicField = false;
+        _newSubTopicController.clear();
+      });
+
+      if (_selectedSubtema != null) {
+        await _loadEjercicios(_selectedTema!, _selectedSubtema!);
+      } else {
+        setState(() {
+          _ejercicios = [];
+          _ejercicioData = {};
+        });
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Error al eliminar subtema: $e'),
           backgroundColor: Colors.red,
         ),
       );
@@ -479,6 +598,11 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                 ),
               ),
             ),
+            if (_selectedTema != null && _temas.length > 1)
+              IconButton(
+                icon: const Icon(Iconsax.trash, color: Colors.red),
+                onPressed: _deleteTopic,
+              ),
             IconButton(
               icon: Icon(_showNewTopicField ? Iconsax.close_circle : Iconsax.add),
               onPressed: () {
@@ -546,6 +670,11 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
                 ),
               ),
             ),
+            if (_selectedSubtema != null && _subtemas.length > 1)
+              IconButton(
+                icon: const Icon(Iconsax.trash, color: Colors.red),
+                onPressed: _deleteSubTopic,
+              ),
             IconButton(
               icon: Icon(_showNewSubTopicField ? Iconsax.close_circle : Iconsax.add),
               onPressed: () {
@@ -845,7 +974,7 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
           _ejercicioData['opcionCorrecta'] = value;
         });
       },
-      fillColor: WidgetStateProperty.all(primaryColor),
+      fillColor: MaterialStateProperty.all(primaryColor),
     );
   }
 }
