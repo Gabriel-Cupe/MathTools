@@ -132,7 +132,7 @@ void _newExercise() {
       'opciones': {'a': '', 'b': '', 'c': '', 'd': '', 'e': ''},
       'opcionCorrecta': 'a',
       'solucion': '',
-      'imagenUrl': '',
+      'imagenUrl': 'https://i.ibb.co/WWb7LfGn/defecto.jpg',
     };
     _selectedEjercicioId = null;
     _imageFile = null;
@@ -491,34 +491,65 @@ Future<void> _saveExercise() async {
   }
 
   @override
-  Widget build(BuildContext context) {
-    if (_isLoading) {
-      return const Center(child: CircularProgressIndicator());
-    }
-
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Panel izquierdo - Lista de ejercicios
-        Expanded(
-          flex: 2,
-          child: _buildExerciseListPanel(),
-        ),
-        
-        // Panel derecho - Editor de ejercicio
-        Expanded(
-          flex: 3,
-          child: _ejercicioData.isNotEmpty 
-              ? _buildExerciseEditor() 
-              : const Center(child: Text('Selecciona o crea un ejercicio para editar')),
-        ),
-      ],
-    );
+@override
+Widget build(BuildContext context) {
+  if (_isLoading) {
+    return const Center(child: CircularProgressIndicator());
   }
 
+  return LayoutBuilder(
+    builder: (context, constraints) {
+      final isLargeScreen = constraints.maxWidth > 800; // Define tu breakpoint
+
+      if (isLargeScreen) {
+        // Diseño para pantallas grandes (horizontal)
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Panel izquierdo - Lista de ejercicios (40% del ancho)
+            Expanded(
+              flex: 2,
+              child: _buildExerciseListPanel(),
+            ),
+            
+            // Panel derecho - Editor de ejercicio (60% del ancho)
+            Expanded(
+              flex: 3,
+              child: _ejercicioData.isNotEmpty 
+                  ? _buildExerciseEditor() 
+                  : const Center(child: Text('Selecciona o crea un ejercicio para editar')),
+            ),
+          ],
+        );
+      } else {
+        // Diseño para pantallas pequeñas (vertical)
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              // Panel de lista de ejercicios (arriba)
+              _buildExerciseListPanel(),
+              
+              const SizedBox(height: 16),
+              
+              // Panel de editor (abajo)
+              _ejercicioData.isNotEmpty 
+                  ? _buildExerciseEditor() 
+                  : const Center(child: Text('Selecciona o crea un ejercicio para editar')),
+            ],
+          ),
+        );
+      }
+    },
+  );
+}
   Widget _buildExerciseListPanel() {
     return Card(
       margin: const EdgeInsets.all(8),
+    child: ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: MediaQuery.of(context).size.height * 0.9, // 90% de la altura de la pantalla
+      ),
+
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -566,7 +597,7 @@ Future<void> _saveExercise() async {
           ],
         ),
       ),
-    );
+    ));
   }
 
   Widget _buildTopicSelector() {

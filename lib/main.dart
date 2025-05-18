@@ -18,7 +18,19 @@ import 'package:mathtools/auth/login_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+
+
+  try {
+    // Verifica si ya fue inicializado
+    final apps = Firebase.apps;
+    if (apps.isEmpty) {
+      await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+    }
+  } catch (e) {
+    print('Error al inicializar Firebase: $e');
+  }
+
   final prefs = await SharedPreferences.getInstance();
   final isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
   final userId = prefs.getString('userId');
