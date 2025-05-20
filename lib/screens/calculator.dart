@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter_math_fork/flutter_math.dart';
 
 class ScientificCalculator extends StatefulWidget {
   const ScientificCalculator({super.key});
@@ -14,6 +15,7 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
   final Color _primaryColor = const Color(0xFF0924AA);
   final Color _secondaryColor = const Color(0xFF0380FB);
   final Color _accentColor = const Color(0xFFFFCB87);
+
 
   // Colores adaptados al tema
   Color get _backgroundColor => Theme.of(context).brightness == Brightness.dark
@@ -46,39 +48,104 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
   String? _operation;
   bool _isRadians = true;
   bool _isSecondFunction = false;
+  
 
-// Gamma function approximation for factorial of non-integers
-  double _gamma(double x) {
-    if (x < 0.5) {
-      return math.pi / (math.sin(math.pi * x) * _gamma(1 - x));
-    }
-    
-    double t = x + 6.5;
-    double sum = 1.000000000190015;
-    sum += 76.18009172947146 / (x + 1);
-    sum -= 86.50532032941677 / (x + 2);
-    sum += 24.01409824083091 / (x + 3);
-    sum -= 1.231739572450155 / (x + 4);
-    sum += 0.1208650973866179e-2 / (x + 5);
-    sum -= 0.5395239384953e-5 / (x + 6);
-    
-    return math.pow(t, x - 0.5) * math.exp(-t) * math.sqrt(2 * math.pi) * sum;
+  // Gamma function approximation for factorial of non-integers
+double gamma(double z) {
+  const p = [
+    676.5203681218851,
+    -1259.1392167224028,
+    771.32342877765313,
+    -176.61502916214059,
+    12.507343278686905,
+    -0.13857109526572012,
+    9.9843695780195716e-6,
+    1.5056327351493116e-7
+  ];
+  const double g = 7;
+
+  if (z < 0.5) {
+    return math.pi / (math.sin(math.pi * z) * gamma(1 - z));
   }
 
+  z -= 1;
+  double x = 0.99999999999980993;
+
+  for (int i = 0; i < p.length; i++) {
+    x += p[i] / (z + i + 1);
+  }
+
+  double t = z + g + 0.5;
+  return math.sqrt(2 * math.pi) * math.pow(t, z + 0.5) * math.exp(-t) * x;
+}
+
   double _factorial(double x) {
-    if (x.floor() == x && x >= 0) {
-      // For positive integers
+    if (x < 0) {
+      return double.nan; // No definido para negativos
+    }
+    
+    if (x.floor() == x) {
+      // Para enteros positivos
+      if (x > 170) return double.infinity; // Evitar overflow
       double result = 1;
       for (int i = 2; i <= x; i++) {
         result *= i;
       }
       return result;
     } else {
-      // For decimals and negative numbers using gamma function
-      return _gamma(x + 1);
+      // Para decimales usando gamma
+      try {
+        return gamma(x + 1);
+      } catch (e) {
+        return double.nan;
+      }
     }
   }
 
+  String _formatNumber(double num) {
+    if (num.isInfinite) {
+      return '∞';
+    }
+    
+    if (num.isNaN) {
+      return 'No definido';
+    }
+    
+    // Manejar números muy pequeños (prácticamente cero)
+    if (num.abs() >= 1e10 || (num.abs() <= 1e-5 && num != 0)) {
+      // Formatear con notación científica
+      String sciNotation = num.toStringAsExponential(8);
+      
+      // Manejar el caso especial de ±∞
+      if (sciNotation.contains('Infinity')) {
+        return num.isNegative ? '-∞' : '∞';
+      }
+      
+      // Convertir a formato más legible: 1.23e+5 → 1.23×10^5
+      sciNotation = sciNotation.replaceAllMapped(
+        RegExp(r'([+-]?\d*\.?\d+)e([+-]\d+)'),
+        (Match m) => '${m[1]}×10^${int.parse(m[2]!)}' // Convertir exponente a int para quitar ceros
+      );
+      
+      return sciNotation;
+    }
+    
+    // Para números normales, limitar a 10 decimales máximo
+    String formatted = num.toString();
+    
+    // Si tiene muchos decimales, limitarlos
+    if (formatted.contains('.') && formatted.split('.')[1].length > 10) {
+      formatted = num.toStringAsFixed(10);
+    }
+    
+    // Eliminar ceros decimales innecesarios
+    formatted = formatted.replaceAll(RegExp(r'\.0+$'), '')
+                         .replaceAll(RegExp(r'(\.\d*?)0+$'), r'$1');
+    
+    return formatted;
+  }
+
+//EL PEPEPE
   void _addDigit(String digit) {
     setState(() {
       if (_currentInput == '0' && digit != '.') {
@@ -169,7 +236,7 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
       }
 
       setState(() {
-        _currentInput = result.toString();
+        _currentInput = _formatNumber(result);
         _display = _currentInput;
         _firstOperand = null;
         _operation = null;
@@ -178,75 +245,210 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
   }
 
   void _scientificFunction(String function) {
-    double input = double.parse(_currentInput);
+    double input;
+    try {
+      input = double.parse(_currentInput);
+    } catch (e) {
+      // Si hay un error al parsear (como "No definido")
+      setState(() {
+        _currentInput = 'No definido';
+        _display = _currentInput;
+      });
+      return;
+    }
+
     double result = 0;
+    bool specialCase = false;
 
     switch (function) {
       case 'sin':
-        result = _isRadians ? math.sin(input) : math.sin(input * math.pi / 180);
+        if (!_isRadians) {
+          // Manejar ángulos cuadrantales en grados
+          double modAngle = input % 360;
+          if (modAngle == 90 || modAngle == 270) {
+            specialCase = true;
+            result = modAngle == 90 ? double.infinity : double.negativeInfinity;
+          } else if (modAngle == 0 || modAngle == 180) {
+            specialCase = true;
+            result = 0;
+          }
+        }
+        if (!specialCase) {
+          result = _isRadians ? math.sin(input) : math.sin(input * math.pi / 180);
+        }
         break;
+        
       case 'cos':
-        result = _isRadians ? math.cos(input) : math.cos(input * math.pi / 180);
+        if (!_isRadians) {
+          // Manejar ángulos cuadrantales en grados
+          double modAngle = input % 360;
+          if (modAngle == 90 || modAngle == 270) {
+            specialCase = true;
+            result = 0;
+          } else if (modAngle == 0) {
+            specialCase = true;
+            result = 1;
+          } else if (modAngle == 180) {
+            specialCase = true;
+            result = -1;
+          }
+        }
+        if (!specialCase) {
+          result = _isRadians ? math.cos(input) : math.cos(input * math.pi / 180);
+        }
         break;
+        
       case 'tan':
-        result = _isRadians ? math.tan(input) : math.tan(input * math.pi / 180);
+        if (!_isRadians) {
+          // Manejar ángulos cuadrantales en grados
+          double modAngle = input % 180;
+          if (modAngle == 90) {
+            specialCase = true;
+            result = input % 360 == 90 ? double.infinity : double.negativeInfinity;
+          } else if (input % 180 == 0) {
+            specialCase = true;
+            result = 0;
+          }
+        } else {
+          // Manejar ángulos cuadrantales en radianes
+          double modPi = input % math.pi;
+          if (modPi == math.pi/2) {
+            specialCase = true;
+            result = (input / (math.pi/2)).round() % 2 == 1 ? double.infinity : double.negativeInfinity;
+          } else if (modPi == 0) {
+            specialCase = true;
+            result = 0;
+          }
+        }
+        if (!specialCase) {
+          result = _isRadians ? math.tan(input) : math.tan(input * math.pi / 180);
+        }
         break;
+        
       case 'asin':
-        result = _isRadians ? math.asin(input) : math.asin(input) * 180 / math.pi;
+        if (input < -1 || input > 1) {
+          specialCase = true;
+          result = double.nan;
+        } else {
+          result = _isRadians ? math.asin(input) : math.asin(input) * 180 / math.pi;
+        }
         break;
+        
       case 'acos':
-        result = _isRadians ? math.acos(input) : math.acos(input) * 180 / math.pi;
+        if (input < -1 || input > 1) {
+          specialCase = true;
+          result = double.nan;
+        } else {
+          result = _isRadians ? math.acos(input) : math.acos(input) * 180 / math.pi;
+        }
         break;
+        
       case 'atan':
         result = _isRadians ? math.atan(input) : math.atan(input) * 180 / math.pi;
         break;
+        
       case 'log':
-        result = math.log(input) / math.ln10;
+        if (input <= 0) {
+          specialCase = true;
+          result = double.nan;
+        } else {
+          result = math.log(input) / math.ln10;
+        }
         break;
+        
       case 'ln':
-        result = math.log(input);
+        if (input <= 0) {
+          specialCase = true;
+          result = double.nan;
+        } else {
+          result = math.log(input);
+        }
         break;
+        
       case '√':
-        result = math.sqrt(input);
+        if (input < 0) {
+          specialCase = true;
+          result = double.nan;
+        } else {
+          result = math.sqrt(input);
+        }
         break;
+        
       case 'x²':
         result = math.pow(input, 2).toDouble();
         break;
+        
       case 'x³':
         result = math.pow(input, 3).toDouble();
         break;
+        
       case 'x^y':
         _setOperation('^');
         return;
+        
       case '10^x':
         result = math.pow(10, input).toDouble();
         break;
+        
       case 'e^x':
         result = math.exp(input);
         break;
+        
       case '1/x':
-        result = 1 / input;
+        if (input == 0) {
+          specialCase = true;
+          result = double.infinity;
+        } else {
+          result = 1 / input;
+        }
         break;
+        
       case '|x|':
         result = input.abs();
         break;
+        
       case 'n!':
         result = _factorial(input);
         break;
+        
       case 'π':
         result = math.pi;
         break;
+        
       case 'e':
         result = math.e;
         break;
+        
       case 'mod':
         _setOperation('mod');
         return;
     }
 
     setState(() {
-      _currentInput = result.toString();
+      _currentInput = _formatNumber(result);
       _display = _currentInput;
+    });
+  }
+
+  void _useConstant(String constant) {
+    setState(() {
+      if (_operation != null && _firstOperand != null) {
+        // Si hay una operación pendiente, usar la constante como segundo operando
+        if (constant == 'π') {
+          _currentInput = math.pi.toString();
+        } else if (constant == 'e') {
+          _currentInput = math.e.toString();
+        }
+        _display = _currentInput;
+      } else {
+        // Si no hay operación pendiente, usar la constante como nuevo valor
+        if (constant == 'π') {
+          _currentInput = math.pi.toString();
+        } else if (constant == 'e') {
+          _currentInput = math.e.toString();
+        }
+        _display = _currentInput;
+      }
     });
   }
 
@@ -291,14 +493,23 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
               ),
             ),
             child: Center(
-              child: Text(
-                text,
-                style: GoogleFonts.poppins(
-                  fontSize: fontSize,
-                  fontWeight: FontWeight.w500,
-                  color: _textColor,
-                ),
-              ),
+              child: text.contains('^') || text.contains('∞') || text == 'π' 
+                ? Math.tex(
+                    text.replaceAll('×10^', '\\times10^{').replaceAll('^', '^{') + (text.contains('^') && !text.contains('}') ? '}' : ''),
+                    textStyle: GoogleFonts.poppins(
+                      fontSize: fontSize,
+                      fontWeight: FontWeight.w500,
+                      color: _textColor,
+                    ),
+                  )
+                : Text(
+                    text,
+                    style: GoogleFonts.poppins(
+                      fontSize: fontSize,
+                      fontWeight: FontWeight.w500,
+                      color: _textColor,
+                    ),
+                  ),
             ),
           ),
         ),
@@ -401,15 +612,7 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
                       const SizedBox(height: 12),
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
-                        child: Text(
-                          _display,
-                          style: GoogleFonts.poppins(
-                            fontSize: 36,
-                            fontWeight: FontWeight.w600,
-                            color: _displayTextColor,
-                          ),
-                        ),
-                      ),
+                                              child: _buildDisplayText(_display),),
                     ],
                   ),
                 ),
@@ -470,12 +673,12 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
                     _buildButton(
                       text: 'π',
                       color: _scientificButtonColor,
-                      onPressed: () => _scientificFunction('π'),
+                      onPressed: () => _useConstant('π'),
                     ),
                     _buildButton(
                       text: 'e',
                       color: _scientificButtonColor,
-                      onPressed: () => _scientificFunction('e'),
+                      onPressed: () => _useConstant('e'),
                     ),
                     
                     // Fila 3 - Controles y operaciones básicas
@@ -608,5 +811,65 @@ class _ScientificCalculatorState extends State<ScientificCalculator> {
         ),
       ),
     );
+  }
+  Widget _buildDisplayText(String text) {
+    // Lista de patrones que deben ser renderizados con Math.tex
+    const mathPatterns = ['×10^', '∞', 'π', '\\^'];
+    
+    // Verificar si el texto contiene algún patrón matemático
+    final shouldUseMathTex = mathPatterns.any((pattern) => text.contains(pattern));
+    
+    if (shouldUseMathTex) {
+      try {
+        // Preprocesar el texto para Math.tex
+        String texText = text
+          .replaceAll('×10^', '\\times 10^{')
+          .replaceAllMapped(RegExp(r'\^(-?\d+)'), (m) => '^{${m[1]}}')
+          .replaceAll('∞', '\\infty');
+        
+        // Asegurar que los corchetes estén balanceados
+        final openBraces = texText.split('{').length - 1;
+        final closeBraces = texText.split('}').length - 1;
+        if (openBraces > closeBraces) {
+          texText += '}' * (openBraces - closeBraces);
+        }
+        
+        return Math.tex(
+          texText,
+          textStyle: GoogleFonts.poppins(
+            fontSize: 36,
+            fontWeight: FontWeight.w600,
+            color: _displayTextColor,
+          ),
+          onErrorFallback: (error) => Text(
+            text,
+            style: GoogleFonts.poppins(
+              fontSize: 36,
+              fontWeight: FontWeight.w600,
+              color: _displayTextColor,
+            ),
+          ),
+        );
+      } catch (e) {
+        // Fallback si hay error en el parseo
+        return Text(
+          text,
+          style: GoogleFonts.poppins(
+            fontSize: 36,
+            fontWeight: FontWeight.w600,
+            color: _displayTextColor,
+          ),
+        );
+      }
+    } else {
+      return Text(
+        text,
+        style: GoogleFonts.poppins(
+          fontSize: 36,
+          fontWeight: FontWeight.w600,
+          color: _displayTextColor,
+        ),
+      );
+    }
   }
 }

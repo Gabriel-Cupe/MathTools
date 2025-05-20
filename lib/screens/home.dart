@@ -26,102 +26,23 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: sectionBackground,
       body: CustomScrollView(
         slivers: [
-          SliverAppBar(
-            floating: true,
-            snap: true,
-            expandedHeight: isDesktop ? 250.0 : 250.0,
-            stretch: true,
-            elevation: 0,
-            backgroundColor: Colors.transparent,
-            flexibleSpace: FlexibleSpaceBar(
-              collapseMode: CollapseMode.pin,
-              stretchModes: const [StretchMode.zoomBackground],
-              background: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: [
-                      primaryColor.withOpacity(0.95),
-                      secondaryColor.withOpacity(0.95),
-                    ],
-                  ),
-                ),
-                child: Stack(
-                  fit: StackFit.expand,
-                  children: [
-                    Positioned(
-                      right: -50,
-                      bottom: -50,
-                      child: Opacity(
-                        opacity: 0.05,
-                        child: SvgPicture.asset(
-                          'assets/icon.svg',
-                          width: 250,
-                          height: 250,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(
-                        isDesktop ? 40.0 : 24.0,
-                        56.0,
-                        isDesktop ? 40.0 : 24.0,
-                        24.0,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: skyBlue.withOpacity(0.2),
-                                  shape: BoxShape.circle,
-                                  border: Border.all(
-                                    color: skyBlue.withOpacity(0.4),
-                                    width: 1.5,
-                                  ),
-                                ),
-                                child: SvgPicture.asset(
-                                  'assets/icon.svg',
-                                  width: 50,
-                                  height: 50,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(
-                                'Math Tools',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 48,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white,
-                                  letterSpacing: 0.5,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 12),
-                          Text(
-                            'Desde álgebra hasta cálculo: MathTools te ofrece teoría detallada, práctica guiada, herramientas de conversión, graficadora y retos diarios para que aprendas de verdad.',
-                            style: GoogleFonts.poppins(
-                              fontSize: isDesktop ? 16 : 14,
-                              color: Colors.white.withOpacity(0.9),
-                            ),
-                          ),
-                                                    const SizedBox(height: 12),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+SliverAppBar(
+  automaticallyImplyLeading: false,
+  floating: true,
+  snap: true,
+  expandedHeight: 250.0,
+  stretch: true,
+  elevation: 0,
+  backgroundColor: Colors.transparent,
+  flexibleSpace: FlexibleSpaceBar(
+    collapseMode: CollapseMode.pin,
+    stretchModes: const [StretchMode.zoomBackground],
+    background: isDesktop
+        ? _buildDesktopHeader(primaryColor, secondaryColor, skyBlue)
+        : _buildMobileHeader(primaryColor, secondaryColor, skyBlue),
+  ),
+),
+  
           SliverPadding(
             padding: EdgeInsets.symmetric(
               horizontal: isDesktop ? 40.0 : 16.0,
@@ -230,10 +151,10 @@ class HomeScreen extends StatelessWidget {
                       _buildToolCard(
                         context: context,
                         icon: FontAwesomeIcons.flask,
-                        title: 'Laboratorio',
+                        title: 'Formularios',
                         color: const Color(0xFF00BCD4),
-                        route: '/lab',
-                        description: 'Experimentos virtuales',
+                        route: '/formularios',
+                        description: 'Menos teoría, más acción',
                       ),
                   ],
                 ),
@@ -266,6 +187,174 @@ class HomeScreen extends StatelessWidget {
       ],
     );
   }
+
+Widget _buildDesktopHeader(Color primaryColor, Color secondaryColor, Color skyBlue) {
+  return Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          primaryColor.withOpacity(0.95),
+          secondaryColor.withOpacity(0.95),
+        ],
+      ),
+    ),
+    child: Stack(
+      fit: StackFit.expand,
+      children: [
+        Positioned(
+          right: -50,
+          bottom: -50,
+          child: Opacity(
+            opacity: 0.05,
+            child: SvgPicture.asset(
+              'assets/icon.svg',
+              width: 250,
+              height: 250,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(40.0, 56.0, 40.0, 24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: skyBlue.withOpacity(0.2),
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: skyBlue.withOpacity(0.4),
+                        width: 1.5,
+                      ),
+                    ),
+                    child: SvgPicture.asset(
+                      'assets/icon.svg',
+                      width: 50,
+                      height: 50,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Text(
+                    'Math Tools',
+                    style: GoogleFonts.poppins(
+                      fontSize: 48,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'Desde álgebra hasta cálculo: MathTools te ofrece teoría detallada, práctica guiada, herramientas de conversión, graficadora y retos diarios para que aprendas de verdad.',
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  color: Colors.white.withOpacity(0.9),
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _buildMobileHeader(Color primaryColor, Color secondaryColor, Color skyBlue) {
+  return Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          primaryColor.withOpacity(0.95),
+          secondaryColor.withOpacity(0.95),
+        ],
+      ),
+    ),
+    child: Stack(
+      fit: StackFit.expand,
+      children: [
+        Positioned(
+          right: -50,
+          bottom: -50,
+          child: Opacity(
+            opacity: 0.05,
+            child: SvgPicture.asset(
+              'assets/icon.svg',
+              width: 250,
+              height: 250,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(24.0, 56.0, 24.0, 24.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                      color: skyBlue.withOpacity(0.2),
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: skyBlue.withOpacity(0.4),
+                        width: 1.5,
+                      ),
+                    ),
+                    child: SvgPicture.asset(
+                      'assets/icon.svg',
+                      width: 50,
+                      height: 50,
+                      color: Colors.white,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Text(
+                    'Math Tools',
+                    style: GoogleFonts.poppins(
+                      fontSize: 48,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Text(
+                'Desde álgebra hasta cálculo: MathTools te ofrece teoría detallada, práctica guiada, herramientas de conversión, graficadora y retos diarios para que aprendas de verdad.',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  fontSize: 12,
+                  color: Colors.white.withOpacity(0.9),
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
+          ),
+        ),
+      ],
+    ),
+  );
+}
+
+
 Widget _buildMobileLayout(
   bool isDesktop, 
   BuildContext context, 
@@ -322,7 +411,7 @@ Widget _buildMobileLayout(
               title: 'Ejercicios',
               color: const Color(0xFF9C27B0),
                       route: '/ejercicios',
-                      description: 'Biblioteca de ejercicios para mejorar tus matemáticas',
+                      description: 'Biblioteca de ejercicios',
             ),
             _buildMobileToolCard(
               context: context,

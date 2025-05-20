@@ -43,7 +43,7 @@ class RetoModel {
       premisa: map['premisa'] ?? '',
       imagenUrl: map['imagenUrl'],
       opciones: Map<String, String>.from(map['opciones'] ?? {}),
-      opcionCorrecta: map['opcionCorrecta'] ?? 'a',
+      opcionCorrecta: map['opcionCorrecta'] ?? '',
       solucion: map['solucion'] ?? '',
       apartado: map['apartado'] ?? '',
       fechaPublicacion: fechaPublicacion,

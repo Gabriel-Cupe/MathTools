@@ -340,7 +340,7 @@ Widget _buildBottomControls(BuildContext context) {
         Row(
           children: [
             Text(
-              'Ejercicio ${currentIndex + 1} de $totalExercises',
+              '${currentIndex + 1} de $totalExercises',
               style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(width: 16),

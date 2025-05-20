@@ -1,0 +1,288 @@
+{
+  "ejercicios": {
+    "ejercicios": {
+      "Cálculo Diferencial": {
+        "Derivadas": {
+          
+          "ej1748531388064": {
+            "dificultad": "medio",
+            "id": "ej1748531388064",
+            "premisa": "Halle $\\frac{dy}{dx}$ para $y = \\ln(\\sqrt{x^2 + 1})$",
+            "opcionCorrecta": "b",
+            "opciones": {
+              "a": "$\\frac{1}{x^2 + 1}$",
+              "b": "$\\frac{x}{x^2 + 1}$",
+              "c": "$\\frac{2x}{x^2 + 1}$",
+              "d": "$\\frac{1}{\\sqrt{x^2 + 1}}$",
+              "e": "$\\frac{x^2}{x^2 + 1}$"
+            },
+            "solucion": "$y = \\frac{1}{2}\\ln(x^2 + 1)$\n$\\frac{dy}{dx} = \\frac{1}{2} \\cdot \\frac{2x}{x^2 + 1}$\n**Respuesta correcta:** $\\frac{x}{x^2 + 1}$",
+            "tema": "Cálculo Diferencial",
+            "subtema": "Derivadas"
+          },
+          "ej1748531388065": {
+            "dificultad": "medio",
+            "id": "ej1748531388065",
+            "premisa": "Calcule $\\lim_{x \\to 0} \\frac{e^{2x} - 1}{\\sin x}$",
+            "opcionCorrecta": "c",
+            "opciones": {
+              "a": "$0$",
+              "b": "$1$",
+              "c": "$2$",
+              "d": "$\\infty$",
+              "e": "$-1$"
+            },
+            "solucion": "Aplicando L'Hôpital:\n$\\lim_{x \\to 0} \\frac{2e^{2x}}{\\cos x} = \\frac{2}{1}$\n**Respuesta correcta:** $2$",
+            "tema": "Cálculo Diferencial",
+            "subtema": "Límites"
+          },
+          "ej1748531388066": {
+            "dificultad": "dificil",
+            "id": "ej1748531388066",
+            "premisa": "Derive $f(x) = \\arctan(e^{3x})$",
+            "opcionCorrecta": "c",
+            "opciones": {
+              "a": "$\\frac{e^{3x}}{1 + e^{6x}}$",
+              "b": "$\\frac{3}{1 + e^{6x}}$",
+              "c": "$\\frac{3e^{3x}}{1 + e^{6x}}$",
+              "d": "$\\frac{3x}{1 + e^{6x}}$",
+              "e": "$\\frac{3e^{x}}{1 + e^{6x}}$"
+            },
+            "solucion": "$f'(x) = \\frac{1}{1 + e^{6x}} \\cdot 3e^{3x}$\n**Respuesta correcta:** $\\frac{3e^{3x}}{1 + e^{6x}}$",
+            "tema": "Cálculo Diferencial",
+            "subtema": "Derivadas"
+          },
+          "ej1748531388068": {
+            "dificultad": "facil",
+            "id": "ej1748531388068",
+            "premisa": "Resuelva $\\frac{d}{dx}(x^3 + 2x^2 - 5x + 1)$",
+            "opcionCorrecta": "d",
+            "opciones": {
+              "a": "$3x^2 + 4x - 5$",
+              "b": "$x^2 + 4x - 5$",
+              "c": "$3x^2 + 2x - 5$",
+              "d": "$3x^2 + 4x - 5$",
+              "e": "$3x^3 + 4x^2 - 5x$"
+            },
+            "solucion": "Derivando término a término:\n$3x^2 + 4x - 5$\n**Respuesta correcta:** $3x^2 + 4x - 5$",
+            "tema": "Cálculo Diferencial",
+            "subtema": "Derivadas"
+          },
+          "ej1748531388069": {
+            "dificultad": "experto",
+            "id": "ej1748531388069",
+            "premisa": "Halle $\\frac{dy}{dx}$ para $y = x^{x}$",
+            "opcionCorrecta": "b",
+            "opciones": {
+              "a": "$x^{x}(1 + \\ln x)$",
+              "b": "$x^{x}(1 + \\ln x)$",
+              "c": "$x^{x-1}(1 + x\\ln x)$",
+              "d": "$x^{x}(\\ln x)$",
+              "e": "$x^{x}(1 - \\ln x)$"
+            },
+            "solucion": "Aplicando derivación logarítmica:\n$\\ln y = x\\ln x$\n$\\frac{y'}{y} = \\ln x + 1$\n$y' = x^x(1 + \\ln x)$\n**Respuesta correcta:** $x^{x}(1 + \\ln x)$",
+            "tema": "Cálculo Diferencial",
+            "subtema": "Derivadas"
+          },
+          "ej1748531388071": {
+            "dificultad": "facil",
+            "id": "ej1748531388071",
+            "premisa": "Resuelva $\\frac{d}{dx}(e^{2x} + \\sin x)$",
+            "opcionCorrecta": "a",
+            "opciones": {
+              "a": "$2e^{2x} + \\cos x$",
+              "b": "$e^{2x} + \\cos x$",
+              "c": "$2e^{x} + \\cos x$",
+              "d": "$e^{2x} - \\cos x$",
+              "e": "$2e^{2x} - \\sin x$"
+            },
+            "solucion": "Derivando término a término:\n$2e^{2x} + \\cos x$\n**Respuesta correcta:** $2e^{2x} + \\cos x$",
+            "tema": "Cálculo Diferencial",
+            "subtema": "Derivadas"
+          },
+          "ej1748531388072": {
+            "dificultad": "medio",
+            "id": "ej1748531388072",
+            "premisa": "Halle $\\frac{d}{dx}\\left(\\frac{x}{x^2 + 1}\\right)$",
+            "opcionCorrecta": "d",
+            "opciones": {
+              "a": "$\\frac{1 - x^2}{(x^2 + 1)^2}$",
+              "b": "$\\frac{1 + x^2}{(x^2 + 1)^2}$",
+              "c": "$\\frac{x^2 - 1}{(x^2 + 1)^2}$",
+              "d": "$\\frac{1 - x^2}{(x^2 + 1)^2}$",
+              "e": "$\\frac{x^2 + 1}{(x^2 - 1)^2}$"
+            },
+            "solucion": "Regla del cociente:\n$\\frac{(1)(x^2+1) - x(2x)}{(x^2+1)^2} = \\frac{1-x^2}{(x^2+1)^2}$\n**Respuesta correcta:** $\\frac{1 - x^2}{(x^2 + 1)^2}$",
+            "tema": "Cálculo Diferencial",
+            "subtema": "Derivadas"
+          },
+          
+          
+          
+          "ej1747531388064": {
+            "dificultad": "dificil",
+            "id": "ej1747531388064",
+            "imagenUrl": "https://i.ibb.co/HD23FKCh/ejercicio1.jpg",
+            "opcionCorrecta": "c",
+            "opciones": {
+              "a": "$f'(0)$ no existe  ",
+              "b": "$f'(0) = 1$ ",
+              "c": "$f'(0) = 0$  ",
+              "d": "$f'(0)$ oscila entre $-1$ y $1$ ",
+              "e": "$f'(0) = \\infty$"
+            },
+            "premisa": "Resuelve el siguiente problema:",
+            "solucion": "Para calcular $f'(0)$ usamos la definición de derivada:\n\n$f'(0) = \\lim_{h \\to 0} \\frac{f(h) - f(0)}{h}$\n\nComo $f(0) = 0$, entonces:\n\n$f'(0) = \\lim_{h \\to 0} \\frac{f(h)}{h}$\n\nPara $h \\ne 0$, $f(h) = h^3 \\sin\\left(\\frac{1}{h}\\right)$, así que:\n\n$f'(0) = \\lim_{h \\to 0} \\frac{h^3 \\sin\\left(\\frac{1}{h}\\right)}{h} = \\lim_{h \\to 0} h^2 \\sin\\left(\\frac{1}{h}\\right)$\n\nComo $|\\sin\\left(\\frac{1}{h}\\right)| \\leq 1$, entonces:\n\n$|h^2 \\sin\\left(\\frac{1}{h}\\right)| \\leq h^2$\n\nY como $\\lim_{h \\to 0} h^2 = 0$, por el teorema del sándwich se concluye:\n\n$\\lim_{h \\to 0} h^2 \\sin\\left(\\frac{1}{h}\\right) = 0$\n\nPor tanto:\n\n$f'(0) = 0$\n\n**Respuesta correcta: C.** $f'(0) = 0$",
+            "subtema": "Derivadas",
+            "tema": "Cálculo Diferencial"
+          },
+          "ej1747532365646": {
+            "dificultad": "medio",
+            "id": "ej1747532365646",
+            "imagenUrl": "https://i.ibb.co/1tL0MmW1/image.jpg",
+            "opcionCorrecta": "c",
+            "opciones": {
+              "a": "a = -1, b = 2",
+              "b": "a = 1, b = 0",
+              "c": "a = -0.5, b = 1.5",
+              "d": "a = 0.5, b = 0.5",
+              "e": "a = -2, b = 3"
+            },
+            "premisa": "Resuelve el siguiente ejercicio:",
+            "solucion": "Para calcular $f'(1)$ verificamos continuidad:\n\n$\\lim_{x \\to 1^-} f(x) = \\lim_{x \\to 1^+} f(x) = f(1)$\n\n$a(1)^2 + b = \\frac{1}{|1|}$\n\n$a + b = 1$  (1)\n\nCalculamos las derivadas laterales:\n\nPara $x \\leq 1$:\n$f'(x) = 2ax$\n\nPara $x > 1$:\n$f'(x) = -\\frac{1}{x^2}$\n\nIgualamos derivadas en $x = 1$:\n\n$2a(1) = -\\frac{1}{(1)^2}$\n\n$2a = -1$\n\n$a = -\\frac{1}{2}$  (2)\n\nSustituyendo (2) en (1):\n\n$-\\frac{1}{2} + b = 1$\n\n$b = \\frac{3}{2}$\n\n**Respuesta correcta:** $a = -\\frac{1}{2}, b = \\frac{3}{2}$",
+            "subtema": "Derivadas",
+            "tema": "Cálculo Diferencial"
+          },
+          "ej1747533162203": {
+            "dificultad": "experto",
+            "id": "ej1747533162203",
+            "imagenUrl": "https://i.ibb.co/FL3dwf0w/image-1.jpg",
+            "opcionCorrecta": "b",
+            "opciones": {
+              "a": "5 + 7π",
+              "b": "3 - 13π",
+              "c": "2 - 11π",
+              "d": "1 - 5π",
+              "e": "4 + 9π"
+            },
+            "premisa": "Resuelve el siguiente problema:",
+            "solucion": "Para hallar $f'(1)$ de la función:\n\n$f(x) = x^3 \\cos^2 \\left( \\frac{\\pi \\sqrt{5}}{\\sqrt{x+4}} \\right) - (x^2 + 1) g \\left( \\frac{5x^3 + 3}{x+1} \\right)$\n\nPrimero evaluamos en $x = 1$:\n\n$\\frac{\\pi \\sqrt{5}}{\\sqrt{1+4}} = \\frac{\\pi \\sqrt{5}}{\\sqrt{5}} = \\pi$\n\n$\\frac{5(1)^3 + 3}{1+1} = \\frac{8}{2} = 4$\n\nEntonces:\n\n$f(1) = 1^3 \\cos^2 (\\pi) - (1 + 1) g(4) = \\cos^2 \\pi - 2\\pi = (-1)^2 - 2\\pi = 1 - 2\\pi$\n\nAhora derivamos usando regla del producto y cadena:\n\n1. Para el primer término $u(x) = x^3 \\cos^2 \\left( \\frac{\\pi \\sqrt{5}}{\\sqrt{x+4}} \\right)$:\n\n$u'(x) = 3x^2 \\cos^2 (\\cdot) + x^3 \\cdot 2 \\cos (\\cdot) (-\\sin (\\cdot)) \\cdot \\frac{d}{dx}\\left( \\frac{\\pi \\sqrt{5}}{\\sqrt{x+4}} \\right)$\n\n$\\frac{d}{dx}\\left( \\frac{\\pi \\sqrt{5}}{(x+4)^{1/2}} \\right) = -\\frac{\\pi \\sqrt{5}}{2} (x+4)^{-3/2}$\n\nEvaluando en $x=1$:\n\n$u'(1) = 3(1) \\cos^2 \\pi + 1 \\cdot 2 \\cos \\pi (-\\sin \\pi) \\cdot \\left( -\\frac{\\pi \\sqrt{5}}{2 \\cdot 5^{3/2}} \\right) = 3(1) + 0 = 3$\n\n2. Para el segundo término $v(x) = (x^2 + 1) g \\left( \\frac{5x^3 + 3}{x+1} \\right)$:\n\n$v'(x) = 2x \\cdot g(\\cdot) + (x^2 + 1) g'(\\cdot) \\cdot \\frac{d}{dx}\\left( \\frac{5x^3 + 3}{x+1} \\right)$\n\n$\\frac{d}{dx}\\left( \\frac{5x^3 + 3}{x+1} \\right) = \\frac{15x^2(x+1) - (5x^3 + 3)}{(x+1)^2}$\n\nEvaluando en $x=1$:\n\n$\\frac{15(1)(2) - (5 + 3)}{4} = \\frac{30 - 8}{4} = \\frac{22}{4} = \\frac{11}{2}$\n\n$v'(1) = 2(1)\\pi + (1 + 1)\\pi \\cdot \\frac{11}{2} = 2\\pi + 11\\pi = 13\\pi$\n\nFinalmente:\n\n$f'(1) = u'(1) - v'(1) = 3 - 13\\pi$\n\n**Respuesta correcta:** $3 - 13\\pi$",
+            "subtema": "Derivadas",
+            "tema": "Cálculo Diferencial"
+          },
+          "ej1747533429149": {
+            "dificultad": "facil",
+            "id": "ej1747533429149",
+            "imagenUrl": "https://i.ibb.co/rRGqnLb1/image-2.jpg",
+            "opcionCorrecta": "c",
+            "opciones": {
+              "a": "$\\frac{x}{\\sqrt{x^2+1}} + \\frac{x}{\\sqrt{x^2-1}}$",
+              "b": "$\\frac{2x^3}{\\sqrt{x^4-1}}$",
+              "c": "$2x + \\frac{2x^3}{\\sqrt{x^4 - 1}}$",
+              "d": "$\\frac{x^3}{\\sqrt{x^4-1}} - \\frac{x}{\\sqrt{x^2+1}}$",
+              "e": "$\\frac{4x^3}{\\sqrt{x^4-1}}$"
+            },
+            "premisa": "Resuelve el siguiente problema:",
+            "solucion": "Para calcular $\\frac{dy}{dx}$ de:\n\n$y = \\frac{\\sqrt{x^2 + 1} + \\sqrt{x^2 - 1}}{\\sqrt{x^2 + 1} - \\sqrt{x^2 - 1}}$\n\nSimplificamos primero la expresión:\n\nMultiplicamos numerador y denominador por el conjugado:\n\n$y = \\frac{(\\sqrt{x^2+1} + \\sqrt{x^2-1})^2}{(\\sqrt{x^2+1})^2 - (\\sqrt{x^2-1})^2}$\n\n$y = \\frac{(x^2+1) + (x^2-1) + 2\\sqrt{(x^2+1)(x^2-1)}}{2}$\n\n$y = \\frac{2x^2 + 2\\sqrt{x^4 - 1}}{2} = x^2 + \\sqrt{x^4 - 1}$\n\nAhora derivamos:\n\n$\\frac{dy}{dx} = 2x + \\frac{1}{2}(x^4 - 1)^{-1/2} \\cdot 4x^3$\n\n$\\frac{dy}{dx} = 2x + \\frac{2x^3}{\\sqrt{x^4 - 1}}$\n\n**Respuesta correcta:** $2x + \\frac{2x^3}{\\sqrt{x^4 - 1}}$",
+            "subtema": "Derivadas",
+            "tema": "Cálculo Diferencial"
+          },
+          "ej1747579688832": {
+            "dificultad": "medio",
+            "id": "ej1747579688832",
+            "imagenUrl": "https://i.ibb.co/7JnmVPfT/Whats-App-Image-2025-05-18-at-9-55-28-AM.jpg",
+            "opcionCorrecta": "b",
+            "opciones": {
+              "a": "no existe ",
+              "b": "(2a^2mnx^2n-1)(ax^n+b)^m-1/(ax^n-b)^m+1",
+              "c": "(2a^2mnx^2n)(ax^n+b)^m-1/(ax^n-b)^m",
+              "d": "(2a^2mnx^2n-1)(ax^n+b)^m-1/(ax^n-b)^m-1",
+              "e": "n^m"
+            },
+            "premisa": "halla la función derivada: ",
+            "solucion": "B",
+            "subtema": "Derivadas",
+            "tema": "Cálculo Diferencial"
+          },
+          "ej1747582181425": {
+            "dificultad": "facil",
+            "id": "ej1747582181425",
+            "imagenUrl": "https://i.ibb.co/CssnSDhY/imagen-2025-05-18-103006107.png",
+            "opcionCorrecta": "c",
+            "opciones": {
+              "a": "$g'(x) = 2(x + 2)^2 \\cdot \\frac{x}{\\sqrt{x^2 + 3}}$",
+              "b": "$g'(x) = 2(x + 2) \\cdot \\sqrt{x^2 + 2} - \\frac{(x + 2)^2 \\cdot x}{\\sqrt{x^2 + 2}}$",
+              "c": "$g'(x) = 2(x + 2) \\cdot \\sqrt{x^2 + 2} + \\frac{(x + 2)^2 \\cdot x}{\\sqrt{x^2 + 2}}$",
+              "d": "$g'(x) = 2(x + 2)^2 \\cdot \\frac{x}{\\sqrt{x^2 + 2}}$",
+              "e": "$g'(x) = \\frac{(x + 2)^2 + x^2}{\\sqrt{x^2 + 2}}$"
+            },
+            "premisa": "Hallar la derivada de la función:",
+            "solucion": "Para calcular $g'(x)$ de:\n$g(x) = (x + 2)^2 \\sqrt{x^2 + 2}$\n\nPaso 1: Regla del producto\nSi $g(x) = f(x) \\cdot h(x)$, entonces:\n$g'(x) = f'(x) \\cdot h(x) + f(x) \\cdot h'(x)$\n\nTomamos:\n$f(x) = (x + 2)^2$\n$h(x) = \\sqrt{x^2 + 2} = (x^2 + 2)^{1/2}$\n\nPaso 2: Derivar $f(x)$\n$f'(x) = 2(x + 2)$\n\nPaso 3: Derivar $h(x)$ usando regla de la cadena\n$h(x) = (x^2 + 2)^{1/2}$\n$h'(x) = \\frac{1}{2}(x^2 + 2)^{-1/2} \\cdot 2x = \\frac{x}{\\sqrt{x^2 + 2}}$\n\nPaso 4: Aplicar regla del producto\n$g'(x) = f'(x) \\cdot h(x) + f(x) \\cdot h'(x)$\n$g'(x) = 2(x + 2) \\cdot \\sqrt{x^2 + 2} + (x + 2)^2 \\cdot \\frac{x}{\\sqrt{x^2 + 2}}$\n\nResultado final:\n$g'(x) = 2(x + 2) \\cdot \\sqrt{x^2 + 2} + \\frac{(x + 2)^2 \\cdot x}{\\sqrt{x^2 + 2}}$\n\n",
+            "subtema": "Derivadas",
+            "tema": "Cálculo Diferencial"
+          }
+        }
+      }
+    },
+    "subtemas": {
+      "Cálculo Diferencial": [
+        "Derivadas"
+      ]
+    },
+    "temas": [
+      "Cálculo Diferencial"
+    ]
+  },
+  "retos": {
+    "problema_del_dia": {
+      "apartado": "Convergencia de Serie con Integral Análoga",
+      "fechaPublicacion": 1747600800000,
+      "id": "6",
+      "imagenUrl": "https://i.ibb.co/sp6jd54V/Whats-App-Image-2025-04-28-at-7-20-20-PM.jpg",
+      "opcionCorrecta": "d",
+      "opciones": {
+        "a": " La serie converge absolutamente para todo $p > 0$.",
+        "b": "La serie diverge para todo $p \\leq 1$ y converge condicionalmente para $1 < p \\leq 2$.",
+        "c": "La serie converge si y solo si $p > 0$.",
+        "d": "La serie converge condicionalmente para $0 < p \\leq 1$ y absolutamente para $p > 1$.",
+        "e": "La serie converge solo si $p = 1$."
+      },
+      "premisa": "Sea la serie infinita definida por\n$\\displaystyle \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n^p}$\ndonde $p > 0$. Analiza su convergencia para diferentes valores de $p$ y relaciona el resultado con la convergencia de la integral impropia\n$\\displaystyle \\int_1^{\\infty} \\frac{1}{x^p} , dx$.\n\n¿Cuál de las siguientes afirmaciones es correcta?\n",
+      "puntosRecompensa": 20,
+      "solucion": "Primero observamos que la serie\n$\\displaystyle \\sum_{n=1}^{\\infty} \\frac{(-1)^{n+1}}{n^p}$\nes una serie alternante de la forma $\\sum (-1)^{n+1} a_n$ con $a_n = \\frac{1}{n^p}$.\n\nPara que una serie alternante converja, por el criterio de Leibniz, debe cumplirse que:\n\n$a_n$ es decreciente.\n\n$\\lim_{n \\to \\infty} a_n = 0$.\n\nComo $\\frac{1}{n^p}$ cumple ambos requisitos para $p > 0$, la serie siempre converge condicionalmente para $p > 0$.\n\nAhora evaluamos cuándo converge absolutamente. Consideramos:\n$\\displaystyle \\sum_{n=1}^{\\infty} \\left| \\frac{(-1)^{n+1}}{n^p} \\right| = \\sum_{n=1}^{\\infty} \\frac{1}{n^p}$\n\nEsta es la serie p-armónica, la cual:\n\nConverge si $p > 1$\n\nDiverge si $p \\leq 1$\n\nPor lo tanto:\n\nSi $0 < p \\leq 1$: la serie converge condicionalmente\n\nSi $p > 1$: la serie converge absolutamente\n\nFinalmente, la integral\n$\\displaystyle \\int_1^{\\infty} \\frac{1}{x^p} dx$\nse usa comúnmente para analizar la convergencia de la serie armónica generalizada y converge si y solo si $p > 1$."
+    }
+  },
+  "user_counter": 2,
+  "users": {
+    "000001T": {
+      "avatar": "https://i.ibb.co/Mx96Fh8T/Garfild.webp",
+      "banned": false,
+      "description": "Hola buenas",
+      "diario_completo": false,
+      "global_rank": 1,
+      "id": "000001T",
+      "is_admin": true,
+      "is_online": true,
+      "password": "123456",
+      "points": 32,
+      "se_unio": 2025,
+      "updated_at": 1747502370362,
+      "username": "Gabriel Cupe"
+    },
+    "000002J": {
+      "avatar": "https://i.ibb.co/HL1xkdFM/Chat-GPT-Image-16-may-2025-06-21-25-p-m-modified.png",
+      "banned": false,
+      "description": "Soy una discípula de lord Cupe ",
+      "diario_completo": false,
+      "global_rank": 2,
+      "id": "000002J",
+      "is_admin": true,
+      "is_online": true,
+      "password": "888488",
+      "points": 0,
+      "se_unio": 2025,
+      "updated_at": 1747579610481,
+      "username": "Catalina"
+    }
+  }
+}
