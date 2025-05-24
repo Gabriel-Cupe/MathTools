@@ -5,7 +5,7 @@ import 'package:mathtools/admin/admin_panel.dart';
 import 'package:mathtools/main.dart';
 import 'package:mathtools/models/user_model.dart';
 import 'package:mathtools/perfil/profile_logic.dart';
-import 'package:mathtools/puntos.dart';
+import 'package:mathtools/services/puntos.dart';
 import 'package:provider/provider.dart';
 import 'package:mathtools/providers/theme_provider.dart';
 import 'package:mathtools/perfil/profile_screen.dart';

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mathtools/challenge/reto_screen.dart';
-import 'package:mathtools/exercises/exercise_config_screen.dart';
+import 'package:mathtools/options/exercises/exercise_config_screen.dart';
 import 'package:mathtools/models/user_model.dart';
-import 'package:mathtools/convertidor/convertidor_ui.dart';
-import 'package:mathtools/explorador/explorador.dart';
+import 'package:mathtools/options/convertidor/convertidor_ui.dart';
+import 'package:mathtools/options/explorador/explorador.dart';
 import 'package:mathtools/firebase_options.dart';
-import 'package:mathtools/graficadora/graph_screen.dart';
+import 'package:mathtools/options/graficadora/graph_screen.dart';
 import 'package:mathtools/perfil/profile_screen.dart';
 import 'package:mathtools/screens/calculator.dart';
 import 'package:mathtools/services/user_service.dart';

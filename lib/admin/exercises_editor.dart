@@ -30,7 +30,6 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   
   String? _selectedTema;
   String? _selectedSubtema;
-  String? _selectedEjercicioId;
   bool _isLoading = true;
   bool _isSaving = false;
   File? _imageFile;
@@ -96,7 +95,6 @@ class _ExerciseEditorScreenState extends State<ExerciseEditorScreen> {
   Future<void> _loadEjercicios(String tema, String subtema) async {
   setState(() {
     _isLoading = true;
-    _selectedEjercicioId = null;
     _ejercicios = [];
     _ejercicioData = {};
     _formKey = GlobalKey<FormState>(); // Resetear el formulario
@@ -132,9 +130,8 @@ void _newExercise() {
       'opciones': {'a': '', 'b': '', 'c': '', 'd': '', 'e': ''},
       'opcionCorrecta': 'a',
       'solucion': '',
-      'imagenUrl': 'https://i.ibb.co/WWb7LfGn/defecto.jpg',
+      'imagenUrl': '',
     };
-    _selectedEjercicioId = null;
     _imageFile = null;
     // Nueva key para forzar reconstrucción
     _formKey = GlobalKey<FormState>();
@@ -150,7 +147,6 @@ void _editExercise(ExerciseModel ejercicio) {
   setState(() {
     _isNewExercise = false;
     _ejercicioData = ejercicioMap;
-    _selectedEjercicioId = ejercicio.id;
     _imageFile = null;
     // Forzar reconstrucción del formulario
     _formKey = GlobalKey<FormState>();
@@ -238,18 +234,28 @@ Future<void> _saveExercise() async {
   
   setState(() => _isSaving = true);
   try {
-    // Crear una copia final para guardar
-    final ejercicioToSave = Map<String, dynamic>.from(_ejercicioData);
+    final ejercicioToSave = {
+      'id': _ejercicioData['id'],
+      'tema': _selectedTema,
+      'subtema': _selectedSubtema,
+      'dificultad': _ejercicioData['dificultad'],
+      'premisa': _ejercicioData['premisa'],
+      'opciones': _ejercicioData['opciones'],
+      'opcionCorrecta': _ejercicioData['opcionCorrecta'],
+      'solucion': _ejercicioData['solucion'],
+      'imagenUrl': _ejercicioData['imagenUrl'],
+      'solucionImagenUrl': _ejercicioData['solucionImagenUrl'], // Asegúrate de incluir este campo
+    };
     
-    await _dbRef.child('ejercicios/${_selectedTema}/${_selectedSubtema}/${ejercicioToSave['id']}')
+    await _dbRef.child('ejercicios/$_selectedTema/$_selectedSubtema/${_ejercicioData['id']}')
       .update(ejercicioToSave);
 
-    // Recargar desde la base de datos para evitar inconsistencias
     await _loadEjercicios(_selectedTema!, _selectedSubtema!);
-    
     setState(() => _isNewExercise = false);
   } catch (e) {
-    // Manejo de errores...
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Error al guardar: $e')),
+    );
   } finally {
     setState(() => _isSaving = false);
   }
@@ -381,6 +387,40 @@ Future<void> _saveExercise() async {
       setState(() => _isSaving = false);
     }
   }
+  Future<void> _pickAndUploadSolutionImage() async {
+  final result = await FilePicker.platform.pickFiles(
+    type: FileType.image,
+    allowMultiple: false,
+  );
+
+  if (result == null || result.files.isEmpty) return;
+
+  setState(() => _isUploading = true);
+
+  try {
+    String url;
+    if (kIsWeb) {
+      final file = result.files.single;
+      url = await _uploadToImgBBWeb(file);
+    } else {
+      _imageFile = File(result.files.single.path!);
+      url = await _uploadToImgBB(_imageFile!);
+    }
+
+    setState(() {
+      _ejercicioData['solucionImagenUrl'] = url;
+      _isUploading = false;
+    });
+  } catch (e) {
+    setState(() => _isUploading = false);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Error al subir imagen de solución: $e'),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
+}
 
   Future<void> _deleteSubTopic() async {
     if (_selectedTema == null || _selectedSubtema == null) return;
@@ -821,7 +861,8 @@ Widget build(BuildContext context) {
                 maxLines: 5,
               ),
               const SizedBox(height: 24),
-              
+              _buildSolutionImageUploader(),
+const SizedBox(height: 16),
               // Botones de guardar/cancelar
               Row(
                 children: [
@@ -918,7 +959,45 @@ Widget build(BuildContext context) {
       ],
     );
   }
-
+Widget _buildSolutionImageUploader() {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Text(
+        'Imagen de la solución (opcional)',
+        style: GoogleFonts.poppins(fontWeight: FontWeight.w500),
+      ),
+      const SizedBox(height: 8),
+      if (_ejercicioData['solucionImagenUrl'] != null || (!kIsWeb && _imageFile != null))
+        Container(
+          height: 200,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(12),
+            color: Colors.grey.shade100,
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: _isUploading
+              ? const Center(child: CircularProgressIndicator())
+              : kIsWeb
+                  ? Image.network(_ejercicioData['solucionImagenUrl'], fit: BoxFit.cover)
+                  : _imageFile != null
+                      ? Image.file(_imageFile!, fit: BoxFit.cover)
+                      : Image.network(_ejercicioData['solucionImagenUrl'], fit: BoxFit.cover),
+          ),
+        ),
+      const SizedBox(height: 8),
+      SizedBox(
+        width: double.infinity,
+        child: OutlinedButton.icon(
+          icon: const Icon(Iconsax.gallery_add),
+          label: Text(_isUploading ? 'Subiendo...' : 'Seleccionar imagen para solución'),
+          onPressed: _isUploading ? null : () => _pickAndUploadSolutionImage(),
+        ),
+      ),
+    ],
+  );
+}
   Widget _buildOptionsSection() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

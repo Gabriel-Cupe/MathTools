@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mathtools/graficadora/graph_screen.dart';
+import 'package:mathtools/options/graficadora/graph_screen.dart';
 import 'package:mathtools/perfil/profile_screen.dart';
 import 'package:mathtools/screens/calculator.dart';
 import 'package:mathtools/screens/home.dart';

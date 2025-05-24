@@ -153,7 +153,7 @@ SliverAppBar(
                         icon: FontAwesomeIcons.flask,
                         title: 'Formularios',
                         color: const Color(0xFF00BCD4),
-                        route: '/formularios',
+                        route: '/formulas',
                         description: 'Menos teoría, más acción',
                       ),
                   ],

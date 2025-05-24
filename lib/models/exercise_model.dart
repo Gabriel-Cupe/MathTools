@@ -2,12 +2,13 @@ class ExerciseModel {
   final String id;
   final String tema;
   final String subtema;
-  final String dificultad; // 'facil', 'medio', 'dificil', 'experto'
+  final String dificultad;
   final String premisa;
   final Map<String, String> opciones;
   final String opcionCorrecta;
   final String solucion;
   final String? imagenUrl;
+  final String? solucionImagenUrl; // Nuevo campo
 
   ExerciseModel({
     required this.id,
@@ -19,6 +20,7 @@ class ExerciseModel {
     required this.opcionCorrecta,
     required this.solucion,
     this.imagenUrl,
+    this.solucionImagenUrl, // Nuevo campo
   });
 
   factory ExerciseModel.fromMap(Map<String, dynamic> map) {
@@ -32,6 +34,7 @@ class ExerciseModel {
       opcionCorrecta: map['opcionCorrecta'],
       solucion: map['solucion'],
       imagenUrl: map['imagenUrl'],
+      solucionImagenUrl: map['solucionImagenUrl'], // Nuevo campo
     );
   }
 
@@ -46,6 +49,7 @@ class ExerciseModel {
       'opcionCorrecta': opcionCorrecta,
       'solucion': solucion,
       'imagenUrl': imagenUrl,
+      'solucionImagenUrl': solucionImagenUrl, // Nuevo campo
     };
   }
 }
