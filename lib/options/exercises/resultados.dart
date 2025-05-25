@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:iconsax/iconsax.dart';
@@ -449,39 +451,63 @@ Widget _buildSolutionSection(BuildContext context, String title, String content,
           color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(12),
         ),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: TextoMatematico(content),
+        constraints: BoxConstraints(
+          minHeight: 100, // Altura mínima
+          maxHeight: 300, // Altura máxima antes de scroll
         ),
-      ),
-      if (imageUrl != null && imageUrl.isNotEmpty) ...[
-        const SizedBox(height: 16),
-        // Contenedor sin tamaño fijo que se ajusta a la imagen
-Center(
-  child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: Theme.of(context).dividerColor,
+        child: ScrollConfiguration(
+          behavior: ScrollConfiguration.of(context).copyWith(
+            scrollbars: true,
+            dragDevices: {
+              PointerDeviceKind.touch,
+              PointerDeviceKind.mouse,
+            },
+          ),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(
+                  minWidth: MediaQuery.of(context).size.width - 80,
                 ),
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: ImageViewer(
-                  imageUrl: imageUrl,
-                  initialScale: 1.0,
-                  showZoomControls: isSolution, // Solo muestra controles en solución
+                child: TextoMatematico(
+                  content,
+                  textAlign: TextAlign.start,
                 ),
               ),
             ),
           ),
-        
+        ),
+      ),
+      if (imageUrl != null && imageUrl.isNotEmpty) ...[
+        const SizedBox(height: 16),
+        Center(
+          child: Container(
+            constraints: BoxConstraints(
+              maxHeight: 300,
+              maxWidth: MediaQuery.of(context).size.width - 80,
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Theme.of(context).dividerColor,
+              ),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: ImageViewer(
+                imageUrl: imageUrl,
+                initialScale: 1.0,
+                showZoomControls: isSolution,
+              ),
+            ),
+          ),
+        ),
       ],
     ],
   );
 }
-
-
 Widget _buildStatItem(BuildContext context, String label, String value, IconData icon, Color color) {
     return Column(
       children: [

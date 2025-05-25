@@ -1088,3 +1088,7 @@ Widget _buildSolutionImageUploader() {
     );
   }
 }
+
+
+// Problema Difícil:
+
